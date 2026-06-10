@@ -17,8 +17,8 @@ def _load_get_pixai_tags():
     except ImportError as exc:
         raise ImportError(
             "PixAI Tagger requires dghs-imgutils and its runtime dependencies. "
-            "Install them in the ComfyUI Python environment with: "
-            "pip install \"dghs-imgutils>=0.19.0\" torch huggingface_hub timm pillow pandas"
+            "Install them in the ComfyUI Python environment by running: "
+            "python custom_nodes/comfyui-pixai-tagger/install.py"
         ) from exc
 
     return get_pixai_tags

@@ -19,16 +19,22 @@ Both nodes return:
 
 ## Install
 
-Install the dependencies in the same Python environment used by ComfyUI:
+Installing through ComfyUI-Manager handles dependencies automatically (it runs
+`install.py`). For a manual install, run this in the same Python environment
+used by ComfyUI:
 
 ```powershell
 python install.py
 ```
 
-Or install them directly:
+`dghs-imgutils` pins `numpy<2` in its package metadata, which would downgrade
+ComfyUI's numpy — so `install.py` installs it with `--no-deps`, while
+`requirements.txt` lists the dependencies its PixAI code path actually needs.
+Equivalent manual commands:
 
 ```powershell
-pip install "dghs-imgutils>=0.19.0" timm pillow pandas "numpy<2.3"
+pip install -r requirements.txt
+pip install --no-deps "dghs-imgutils>=0.19.0"
 ```
 
 The PixAI ONNX model is downloaded from Hugging Face on first use.

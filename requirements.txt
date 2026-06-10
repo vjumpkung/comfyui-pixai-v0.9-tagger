@@ -1,5 +1,17 @@
-dghs-imgutils>=0.19.0
-timm
+# dghs-imgutils pins numpy<2 in its package metadata, which would downgrade
+# ComfyUI's numpy. It is therefore NOT listed here; install.py installs it
+# separately with --no-deps:
+#   pip install -r requirements.txt
+#   pip install --no-deps "dghs-imgutils>=0.19.0"
+# The packages below are what the get_pixai_tags code path actually imports
+# (scanned from imgutils.tagging / .data / .preprocess / .utils); torch,
+# torchvision and transformers are already provided by ComfyUI itself.
+numpy<2.3
 pillow
 pandas
-numpy<2.3
+huggingface_hub
+hbutils>=0.9.0
+onnxruntime
+pyrfc6266>=1
+urlobject>=2
+tqdm
